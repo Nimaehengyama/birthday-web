@@ -50,7 +50,7 @@ export default function Letter({ onNext }) {
 
   // Toggle audio
   const toggleAudio = () => {
-    const audio = audioRef.current;
+    const audio = new Audio('/birthday-web/assets/music/lost-jicksaw.mp3');
     if (!audio) return;
 
     if (playing) {

@@ -3,14 +3,14 @@ import './Timeline.css';
 
 export default function Timeline({ onNext }) {
   const videos = [
-    { src: "/assets/videos/1.mp4", className: "frame1" },
-    { src: "/assets/videos/2.mp4", className: "frame2" },
-    { src: "/assets/videos/3.mp4", className: "frame3" },
-    { src: "/assets/videos/4.mp4", className: "frame4" },
-    { src: "/assets/videos/5.mp4", className: "frame5" },
-    { src: "/assets/videos/6.mp4", className: "frame6" },
-    { src: "/assets/videos/7.mp4", className: "frame7" },
-    { src: "/assets/videos/10.mp4", className: "frame10" }
+    { src: "/birthday-web/assets/videos/1.mp4", className: "frame1" },
+    { src: "/birthday-web/assets/videos/2.mp4", className: "frame2" },
+    { src: "/birthday-web/assets/videos/3.mp4", className: "frame3" },
+    { src: "/birthday-web/assets/videos/4.mp4", className: "frame4" },
+    { src: "/birthday-web/assets/videos/5.mp4", className: "frame5" },
+    { src: "/birthday-web/assets/videos/6.mp4", className: "frame6" },
+    { src: "/birthday-web/assets/videos/7.mp4", className: "frame7" },
+    { src: "/birthday-web/assets/videos/10.mp4", className: "frame10" }
   ];
 
   return (
@@ -21,7 +21,7 @@ export default function Timeline({ onNext }) {
         {videos.map((v, i) => (
           <div className={`video-box ${v.className}`} key={i}>
             <video
-              src={v.src}
+              src="/birthday-web/assets/videos/1.mp4"
               controls
               muted
               autoPlay
