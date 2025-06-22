@@ -32,20 +32,18 @@ export default function Letter({ onNext }) {
     }
   }, [index]);
 
-  // Setup Audio once (แต่ไม่เล่นเพลง)
   useEffect(() => {
-    const audio = new Audio('/birthday-web/assets/music/lost-jicksaw.mp3');
-    audio.loop = true;
-    audio.volume = 0.4;
-    audioRef.current = audio;
+  const audio = new Audio(process.env.PUBLIC_URL + '/assets/music/lost-jicksaw.mp3');
+  audio.loop = true;
+  audio.volume = 0.4;
+  audioRef.current = audio;
 
-    // ไม่เล่นเพลงอัตโนมัติ
-    // audio.play() ลบออก
+  // ไม่ autoplay ทันที รอปุ่มกด
+  return () => {
+    audio.pause();
+  };
+}, []);
 
-    return () => {
-      audio.pause();
-    };
-  }, []);
 
   // Toggle audio
   const toggleAudio = () => {
