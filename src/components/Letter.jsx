@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import './Letter.css';
 
 export default function Letter({ onNext }) {
-  const [playing, setPlaying] = useState(true);
+  const [playing, setPlaying] = useState(false); // เริ่มต้นไม่เล่นเพลง
   const audioRef = useRef(null);
 
   const fullText = `
@@ -32,16 +32,15 @@ export default function Letter({ onNext }) {
     }
   }, [index]);
 
-  // Setup Audio once
+  // Setup Audio once (แต่ไม่เล่นเพลง)
   useEffect(() => {
-    const audio = new Audio('/birthday-web/assets/music/lost-jicksaw.mp3');
+    const audio = new Audio('/assets/music/lost-jicksaw.mp3');
     audio.loop = true;
     audio.volume = 0.4;
     audioRef.current = audio;
 
-    audio.play().catch((err) => {
-      console.warn('Autoplay blocked:', err.message);
-    });
+    // ไม่เล่นเพลงอัตโนมัติ
+    // audio.play() ลบออก
 
     return () => {
       audio.pause();
@@ -50,22 +49,21 @@ export default function Letter({ onNext }) {
 
   // Toggle audio
   const toggleAudio = () => {
-  const audio = audioRef.current;
-  if (!audio) return;
+    const audio = audioRef.current;
+    if (!audio) return;
 
-  if (playing) {
-    audio.pause();
-    setPlaying(false);
-  } else {
-    audio.play()
-      .then(() => setPlaying(true))
-      .catch((err) => {
-        console.warn('Autoplay error:', err.message);
-        setPlaying(false);
-      });
-  }
-};
-
+    if (playing) {
+      audio.pause();
+      setPlaying(false);
+    } else {
+      audio.play()
+        .then(() => setPlaying(true))
+        .catch((err) => {
+          console.warn('Autoplay error:', err.message);
+          setPlaying(false);
+        });
+    }
+  };
 
   // แปลง \n เป็น <br />
   const formattedText = text.split('\n').map((line, i) => (
