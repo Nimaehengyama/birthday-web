@@ -50,17 +50,18 @@ export default function Letter({ onNext }) {
 
   // Toggle audio
   const toggleAudio = () => {
-    const audio = new Audio('/birthday-web/assets/music/lost-jicksaw.mp3');
-    if (!audio) return;
+  const audio = audioRef.current;
+  if (!audio) return;
 
-    if (playing) {
-      audio.pause();
-    } else {
-      audio.play().catch(() => {});
-    }
+  if (playing) {
+    audio.pause();
+  } else {
+    audio.play().catch(() => {});
+  }
 
-    setPlaying(!playing);
-  };
+  setPlaying(!playing);
+};
+
 
   // แปลง \n เป็น <br />
   const formattedText = text.split('\n').map((line, i) => (

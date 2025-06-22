@@ -21,7 +21,7 @@ export default function Timeline({ onNext }) {
         {videos.map((v, i) => (
           <div className={`video-box ${v.className}`} key={i}>
             <video
-              src="/birthday-web/assets/videos/1.mp4"
+              src={v.src}
               controls
               muted
               autoPlay
