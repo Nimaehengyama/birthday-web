@@ -1,0 +1,106 @@
+.birthday-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #ffe0f0, #fff5f7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.birthday-title {
+  font-size: clamp(2.5rem, 6vw, 3.5rem);
+  color: #d81b60;
+  margin-bottom: 1rem;
+}
+
+.birthday-message {
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: #4a148c;
+  max-width: 600px;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.birthday-button {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  background-color: #f06292;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.birthday-button:hover {
+  background-color: #ec407a;
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  top: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: fall 3s linear forwards;
+  z-index: 9999;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Heart float */
+.heart {
+  position: fixed;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background: pink;
+  animation: floatUp 5s linear forwards;
+  border-radius: 50% 50% 0 0;
+  transform: rotate(45deg);
+  z-index: 999;
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: pink;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -10px;
+  left: 0;
+}
+
+.heart::after {
+  left: -10px;
+  top: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    bottom: 0;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    bottom: 100vh;
+    opacity: 0;
+    transform: translateY(-100px) scale(1.5);
+  }
+}
