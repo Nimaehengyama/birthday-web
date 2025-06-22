@@ -34,7 +34,7 @@ export default function Letter({ onNext }) {
 
   // Setup Audio once
   useEffect(() => {
-    const audio = new Audio('/assets/music/lost-jicksaw.mp3');
+    const audio = new Audio('/birthday-web/assets/music/lost-jicksaw.mp3');
     audio.loop = true;
     audio.volume = 0.4;
     audioRef.current = audio;
