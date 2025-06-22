@@ -55,11 +55,15 @@ export default function Letter({ onNext }) {
 
   if (playing) {
     audio.pause();
+    setPlaying(false);
   } else {
-    audio.play().catch(() => {});
+    audio.play()
+      .then(() => setPlaying(true))
+      .catch((err) => {
+        console.warn('Autoplay error:', err.message);
+        setPlaying(false);
+      });
   }
-
-  setPlaying(!playing);
 };
 
 
